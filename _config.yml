@@ -81,13 +81,13 @@ analytics:
 # Site Author
 author:
   name             : "Chinmay Lohani"
-  avatar           : "profile.png"
-  bio              : "PhD Student at University of Pennsylvania"
+  avatar           : "hshot.jpg"
+  bio              : "PhD student at UPenn"
   location         : #"Location"
   employer         :
   pubmed           : #"https://www.ncbi.nlm.nih.gov/pubmed/?term=john+snow"
   googlescholar    : #"http://yourfullgooglescholarurl.com"
-  email            :
+  email            : "clohani@sas.upenn.edu"
   researchgate     :  # example: "https://www.researchgate.net/profile/yourprofile"
   uri              :
   bitbucket        :
@@ -102,7 +102,7 @@ author:
   instagram        :
   impactstory      : #"https://profiles.impactstory.org/u/xxxx-xxxx-xxxx-xxxx"
   lastfm           :
-  linkedin         :
+  linkedin         : "https://uk.linkedin.com/in/chinmay-lohani-4a5a7074"
   orcid            : #"http://orcid.org/yourorcidurl"
   pinterest        :
   soundcloud       :
@@ -184,9 +184,6 @@ collections:
   CV:
     output: true
     permalink: /:collection/:path/
-  talks:
-    output: false
-    permalink: /:collection/:path/
 
 
 # Defaults
@@ -236,14 +233,6 @@ defaults:
       author_profile: true
       share: true
       comment: true
-  # _talks
-  - scope:
-      path: ""
-      type: talks
-    values:
-      layout: talk
-      author_profile: true
-      share: false
 
 # Sass/SCSS
 sass:
