@@ -1,8 +1,6 @@
 ---
-layout: archive
 title: "Policy"
 permalink: /policy/
-author_profile: true
 ---
 
 My research has always had a deliberate focus to inform policy. Towards the end of my undergrad, I interned at [CSTEP](https://cstep.in), which brings frontier technological solutions to solving concrete policy problems. I worked on using AI based tools to help predict the demand for water in hyperfine geographic detail to help governments in southern Indian states direct water supply during the worst of summer.
