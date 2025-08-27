@@ -1,7 +1,8 @@
 :root{
   --accent: #0b63c7;
   --text: #111;
-  --muted: #666;
+  /*--muted: #666; */
+  --muted: #999;
   --bg: #fff;
   --border: #e7e7e7;
   --sidebar: 320px;   /* desktop sidebar width */
@@ -55,8 +56,10 @@ img { max-width: 100%; height: auto; } /* no overflow on mobile */
   top: 0; left: 0; bottom: 0;
   width: var(--sidebar);
   padding: 84px 28px 28px;      /* clears topnav visually */
-  border-right: 1px solid var(--border);
-  background: #fafafa;
+  /*border-right: 1px solid var(--border);*/
+  border-right: none;
+  /*background: #fafafa;*/
+  background: #fff;
   overflow-y: auto;
 }
 .headshot {
@@ -78,7 +81,8 @@ h1 { font-size: 26px; margin: 0 0 6px; }
 }
 .section {
   padding: 28px 0;
-  border-bottom: 1px solid var(--border);
+  /*border-bottom: 1px solid var(--border);*/
+  border-bottom: 1px solid #f2f2f2;
   scroll-margin-top: 84px;      /* anchor offset under fixed header */
 }
 .section:last-of-type { border-bottom: 0; }
