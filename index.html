@@ -5,7 +5,7 @@
   <title>Chinmay Lohani | Economics</title>
   <meta name="viewport" content="width=device-width, initial-scale=1">
 
-  <meta name="description" content="PhD Candidate in Economics at the University of Pennsylavnia. Research in IO, Applied Micro and Public Economics.">
+  <meta name="description" content="PhD Candidate in Economics at the University of Pennsylvania. Research in IO, Applied Micro and Public Economics.">
 
   <!-- Social preview (optional; update when you have a domain + image) -->
   <meta property="og:title" content="Chinmay Lohani | Economics">
@@ -39,7 +39,7 @@
 
   <!-- Fixed left sidebar -->
   <aside class="sidebar">
-    <img class="headshot" src="/assets/img/headshot.jpg" alt="Chinmay Headshot">
+    <img class="headshot" src="assets/img/headshot.jpg" alt="Chinmay Headshot">
     <h1>Chinmay Lohani</h1>
     <p class="tagline">PhD Candidate, Economics<br>University of Pennsylvania</p>
 
@@ -54,7 +54,7 @@
     <section id="about" class="section">
       <h2>About</h2>
       <p>I am a PhD candidate in the Department of Economics at the  University of Pennsylvania. My research focuses on industrial organization and applied microeconomics.</p>
-      <p>I am on the job market in 2025–26. <!--<a href="/files/YourName_JMP.pdf">Job Market Paper</a>.</p> -->
+      <p>I am on the job market in 2025–26. </p> <!--<a href="/files/YourName_JMP.pdf">Job Market Paper</a>.</p> -->
     </section>
 
     <section id="research" class="section">
@@ -102,11 +102,10 @@
     </section>
 
     <section id="cv" class="section">
-      <h2>CV</h2>
-      <p>
-        Download the full CV here:
-        <a href="/files/ChinmayLohani_CV.pdf">ChinmayLohani_CV.pdf</a>
-      </p>
+  <h2>CV</h2>
+  <p>
+    See my <a href="/files/ChinmayLohani_CV.pdf" target="_blank" rel="noopener">full CV (PDF)</a>.
+  </p>
       <ul class="cv-list">
         <li><strong>Education:</strong> PhD Economics, UPenn, 2026 expected</li>
         <li><strong>Fields:</strong> IO, Public Economics, Finance</li>
@@ -145,18 +144,6 @@
     </footer>
   </main>
 
-  <script>
-    // Current year
-    document.getElementById('year').textContent = new Date().getFullYear();
-
-    // Subtle shadow on the top nav after scrolling
-    const topnav = document.getElementById('topnav');
-    document.addEventListener('scroll', () => {
-      if (window.scrollY > 2) topnav.classList.add('scrolled');
-      else topnav.classList.remove('scrolled');
-    });
-  </script>
-
 <script>
   // Current year
   document.getElementById('year').textContent = new Date().getFullYear();
@@ -171,16 +158,16 @@
   // Mobile nav toggle
   const btn = document.querySelector('.nav-toggle');
   const nav = document.getElementById('site-nav');
-  btn.addEventListener('click', () => {
-    const open = nav.classList.toggle('open');
-    btn.setAttribute('aria-expanded', open ? 'true' : 'false');
-  });
-
-  // Close menu after tapping a link (nice on phones)
-  nav.querySelectorAll('a').forEach(a => {
-    a.addEventListener('click', () => nav.classList.remove('open'));
-  });
+  if (btn && nav) {
+    btn.addEventListener('click', () => {
+      const open = nav.classList.toggle('open');
+      btn.setAttribute('aria-expanded', open ? 'true' : 'false');
+    });
+    nav.querySelectorAll('a').forEach(a => {
+      a.addEventListener('click', () => nav.classList.remove('open'));
+    });
+  }
 </script>
- 
+
 </body>
 </html>
