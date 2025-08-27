@@ -1,12 +1,15 @@
 :root{
-  --accent: #0b63c7;   /* change to your accent color */
+  --accent: #0b63c7;
   --text: #111;
   --muted: #666;
   --bg: #fff;
   --border: #e7e7e7;
+  --sidebar: 320px;   /* desktop sidebar width */
+  --gutter: 24px;     /* space between sidebar and content */
 }
 
 /* Base */
+* { box-sizing: border-box; }
 html { scroll-behavior: smooth; }
 body {
   margin: 0;
@@ -15,11 +18,14 @@ body {
   font-family: system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial, "Apple Color Emoji", "Segoe UI Emoji";
   line-height: 1.6;
 }
+img { max-width: 100%; height: auto; } /* no overflow on mobile */
 
 /* Top nav */
 .topnav {
   position: fixed;
-  top: 0; left: 320px; right: 0;
+  top: 0;
+  left: calc(var(--sidebar) + var(--gutter));
+  right: 0;
   height: 64px;
   background: rgba(255,255,255,0.9);
   backdrop-filter: saturate(130%) blur(6px);
@@ -29,28 +35,26 @@ body {
   align-items: center;
 }
 .topnav.scrolled { box-shadow: 0 2px 12px rgba(0,0,0,0.06); }
-.topnav-inner { max-width: 980px; margin: 0 auto; width: 100%; padding: 0 28px; }
-.topnav nav { display: flex; gap: 14px; align-items: center; }
-.topnav a {
+.topnav-inner { max-width: 980px; margin: 0 auto; width: 100%; padding: 0 28px; display: flex; gap: 12px; align-items: center; }
+#site-nav { display: flex; gap: 14px; align-items: center; }
+#site-nav a {
   text-decoration: none;
   color: var(--text);
-  padding: 6px 8px;
+  padding: 8px 10px;            /* bigger tap target */
   border-radius: 8px;
   border: 1px solid transparent;
 }
-.topnav a:hover { border-color: var(--border); }
-.topnav .btn {
-  border: 1px solid var(--border);
-  padding: 8px 12px;
-  background: #fff;
-}
+#site-nav a:hover { border-color: var(--border); }
+
+/* hamburger hidden on desktop */
+.nav-toggle { display: none; background: transparent; border: 0; padding: 8px; cursor: pointer; }
 
 /* Sidebar */
 .sidebar {
   position: fixed;
   top: 0; left: 0; bottom: 0;
-  width: 320px;
-  padding: 84px 28px 28px; /* top padding clears nav visually */
+  width: var(--sidebar);
+  padding: 84px 28px 28px;      /* clears topnav visually */
   border-right: 1px solid var(--border);
   background: #fafafa;
   overflow-y: auto;
@@ -68,14 +72,14 @@ h1 { font-size: 26px; margin: 0 0 6px; }
 
 /* Content */
 .content {
-  margin-left: 320px;
-  padding: 96px 32px 40px; /* top padding clears fixed nav */
+  margin-left: calc(var(--sidebar) + var(--gutter));
+  padding: 96px 32px 40px;      /* top padding clears fixed nav */
   max-width: 980px;
 }
 .section {
   padding: 28px 0;
   border-bottom: 1px solid var(--border);
-  scroll-margin-top: 84px; /* anchors land below nav */
+  scroll-margin-top: 84px;      /* anchor offset under fixed header */
 }
 .section:last-of-type { border-bottom: 0; }
 h2 {
@@ -85,19 +89,48 @@ h2 {
 }
 a { color: var(--accent); }
 a:hover { text-decoration: underline; }
-
 .paper, .course { padding: 14px 0; }
 .paper h3, .course h3 { margin: 0 0 4px; font-size: 19px; }
 .meta { margin: 0 0 8px; color: var(--muted); font-size: 14px; }
 .links a { margin-right: 10px; }
-
 .cv-list { padding-left: 18px; }
 .footer { color: var(--muted); font-size: 14px; padding: 28px 0; }
 
-/* Responsive */
+/* =========================
+   Mobile and tablet styles
+   ========================= */
 @media (max-width: 1000px) {
+  /* Stack the sidebar on top */
   .topnav { left: 0; }
-  .sidebar { position: static; width: auto; border-right: 0; padding: 16px 20px; }
+  .sidebar {
+    position: static; width: auto; border-right: 0;
+    padding: 16px 20px 8px;
+    display: grid; grid-template-columns: 80px 1fr; gap: 12px;
+    align-items: center; background: #f6f6f6;
+  }
+  .headshot { width: 72px; height: 72px; margin: 0; }
+  h1 { font-size: 22px; margin: 0; }
+  .tagline { margin: 2px 0 0; font-size: 14px; }
+  .links { grid-column: 1 / -1; font-size: 13px; }
+
+  /* Top nav collapses behind hamburger */
+  .nav-toggle { display: inline-flex; }
+  #site-nav { 
+    position: absolute; top: 64px; left: 0; right: 0;
+    background: #fff; border-bottom: 1px solid var(--border);
+    padding: 8px 16px; display: none; flex-direction: column; gap: 4px;
+  }
+  #site-nav.open { display: flex; }
+  #site-nav a { padding: 12px; }   /* bigger tap targets */
+
+  /* Content becomes full width */
   .content { margin: 0; padding: 96px 20px 40px; }
-  .topnav-inner { padding: 0 20px; }
+  .topnav-inner { padding: 0 16px; }
+}
+
+/* Extra small phones */
+@media (max-width: 400px) {
+  .headshot { width: 64px; height: 64px; }
+  h1 { font-size: 20px; }
+  .section { padding: 22px 0; }
 }
