@@ -157,3 +157,42 @@ a:hover { text-decoration: underline; }
   h1 { font-size: 22px; }
   .section { padding: 22px 0; }
 }
+
+
+/*  "Abstract"  */
+.paper details.abstract {
+  margin-top: 8px;
+  border: none;             /* no box border */
+  border-radius: 0;
+  background: var(--bg);
+  overflow: hidden;
+}
+
+/* Summary text (the "Abstract" label) */
+.paper details.abstract > summary {
+  list-style: none;
+  cursor: pointer;
+  padding: 6px 0;
+  font-weight: 600;
+  color: var(--muted);       /* make label grey like meta text */
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  user-select: none;
+}
+.paper details.abstract > summary::before {
+  content: "▸";
+  font-size: 0.9rem;
+  transition: transform 160ms ease;
+  color: #555;
+}
+.paper details.abstract[open] > summary::before {
+  transform: rotate(90deg);
+}
+
+/* Abstract body text */
+.paper .abstract-body {
+  padding: 4px 0 0 16px;     /* small indent under the summary */
+  color: #555;       /* grey text */
+  line-height: 1.6;
+}
