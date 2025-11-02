@@ -158,8 +158,31 @@ a:hover { text-decoration: underline; }
   .section { padding: 22px 0; }
 }
 
+/* Inline link styling inside the meta line */
+.paper .meta {
+  display: inline;           /* keep it on one line with the title context */
+}
+.paper .meta .meta-link {
+  color: var(--accent);
+  text-decoration: none;
+  font-weight: 600;
+  opacity: 0.9;              /* subtle */
+}
+.paper .meta .meta-link:hover,
+.paper .meta .meta-link:focus {
+  text-decoration: underline;
+  opacity: 1;
+}
+
+/* Paper meta-specific spacing (safe to keep if you chose HTML separator, too) */
+.paper .meta .meta-link { margin-left: 8px; }
+
 
 /*  "Abstract"  */
+/* Hide built-in disclosure markers so our styles take effect consistently */
+details > summary::-webkit-details-marker { display: none; } /* Chrome/Safari */
+details > summary::marker { content: ""; }                   /* Firefox */                 /* Firefox */
+
 .paper details.abstract {
   margin-top: 8px;
   border: none;             /* no box border */
@@ -173,16 +196,17 @@ a:hover { text-decoration: underline; }
   list-style: none;
   cursor: pointer;
   padding: 6px 0;
+  font-size: 0.75rem !important;           /* ADD THIS LINE to make button smaller */
   font-weight: 600;
   color: var(--muted);       /* make label grey like meta text */
-  display: flex;
+  display: inline-flex; 
   align-items: center;
   gap: 6px;
   user-select: none;
 }
 .paper details.abstract > summary::before {
   content: "▸";
-  font-size: 0.9rem;
+  font-size: 0.75rem;
   transition: transform 160ms ease;
   color: #555;
 }
@@ -194,5 +218,25 @@ a:hover { text-decoration: underline; }
 .paper .abstract-body {
   padding: 4px 0 0 16px;     /* small indent under the summary */
   color: #555;       /* grey text */
+  font-size: 0.85rem;
   line-height: 1.6;
 }
+
+/* Reusable inline action link */
+.meta-link {
+  color: var(--accent);
+  text-decoration: none;
+  font-weight: 600;
+  opacity: 0.9;
+}
+.meta-link:hover,
+.meta-link:focus {
+  text-decoration: underline;
+  opacity: 1;
+}
+
+/* Paper meta-specific spacing (safe to keep if you chose HTML separator, too) */
+.paper .meta .meta-link { margin-left: 8px; }
+
+/* extra space before the Work in Progress subheader */
+.section h3.subgap { margin-top: 40px; }
