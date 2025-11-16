@@ -178,6 +178,27 @@ a:hover { text-decoration: underline; }
 .paper .meta .meta-link { margin-left: 8px; }
 
 
+/* Job Market Paper badge */
+.jmp-badge {
+  display: inline-block;
+  margin-left: 8px;
+  margin-right: 4px;
+  padding: 1px 6px;
+  font-size: 0.58rem;               /* smaller text */
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+  border-radius: 999px;
+  border: 1px solid rgba(176, 38, 38, 0.28);
+  color: #8b1f1f;
+  background: rgba(176, 38, 38, 0.03); /* lighter */
+  vertical-align: middle;
+}
+
+.jmp-badge:hover {
+  border-color: rgba(176, 38, 38, 0.6);
+  background: rgba(176, 38, 38, 0.07);
+}
+
 /*  "Abstract"  */
 /* Hide built-in disclosure markers so our styles take effect consistently */
 details > summary::-webkit-details-marker { display: none; } /* Chrome/Safari */
